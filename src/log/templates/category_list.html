@@ -1,0 +1,22 @@
+{% extends 'base_2.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+{% for instance in object_list %}
+{% if instance.name != 'No Category' %}
+    <li><a href="http://127.0.0.1:8000/categories/{{ instance.name }}">{{ instance.name }}</a></li>
+    <!-- <p><a href="{{  instances.get_absolute_url }}/"> {{ instance.answer_text }}</a></p> -->
+{% endif %}
+{% endfor %}
+
+
+{% else %}
+
+<p>You must log in</p>
+
+{% endif %}
+
+{% endblock content %} 
+
