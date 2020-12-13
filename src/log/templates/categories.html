@@ -1,0 +1,38 @@
+{% extends 'base_2.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+{% if category_questions %}
+
+<h1>{{  cats  }}</h1>
+
+<ul>
+{% for question in category_questions %}
+
+<h4>{{ question.question_text }}</h4>
+<p>{{  question.answer_text  }}</p>
+<p>Tags: {{  question.tag  }}</p>
+<p>Asked: {{  question.created_at  }}</p>
+
+{% endfor %}
+</ul>
+
+{% else %}
+
+    <h2>Sorry, no such category exists.</h2>
+
+{% endif %}
+
+<button type="button" onclick="javascript:history.back()">Back</button>
+
+{% else %}
+
+<p>You must log in</p>
+
+<button type="button" onclick="javascript:history.back()">Back</button>
+
+{% endif %}
+
+{% endblock content %}
