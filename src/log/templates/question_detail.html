@@ -1,0 +1,34 @@
+{% extends 'base_2.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<!-- <h1>{{ object.author.id }}</h1> -->
+
+<h1>{{ object.question_text }}</h1>
+<p>{{  object.answer_text  }}</p>
+<p>Category: {{  object.category  }}</p>
+<p>Tags: {{  object.tag  }}</p>
+<p>Asked: {{  object.created_at  }}</p>
+
+{% if user.id == object.author.id %}
+
+<a href="edit">Edit</a>
+<a href="delete">Delete</a>
+
+{% else %}
+
+{% endif %}
+
+<button type="button" onclick="javascript:history.back()">Back</button>
+
+{% else %}
+
+<p>You must log in</p>
+
+<button type="button" onclick="javascript:history.back()">Back</button>
+
+{% endif %}
+
+{% endblock content %} 
