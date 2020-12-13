@@ -1,0 +1,13 @@
+{% if user.is_authenticated and user.id == object.author.id %}
+
+<form method="POST">{% csrf_token %}
+    <h1>Do you want to delete the question "{{ object.question_text }}"?</h1>
+    <p><input type="submit" value="Yes" /> <a href="../">Cancel</a></p>
+</form>
+
+{% else %}
+
+<p>You must be logged in as the correct user to delete this post</p>
+<button type="button" onclick="javascript:history.back()">Back</button>
+
+{% endif %}
