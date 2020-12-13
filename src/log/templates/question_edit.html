@@ -1,0 +1,36 @@
+{% extends 'base_2.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated and user.id == object.author.id %}
+
+<form method="POST">{% csrf_token %}
+
+    <div class="fieldWrapper">
+        Question:
+        {{ form.question_text }}
+    </div>
+    <div class="fieldWrapper">
+        Category:
+        {{  form.category  }}
+    </div>
+    <div class="fieldWrapper">
+        Tags:
+        {{  form.tag  }}
+    </div>
+
+<button>Confirm Edit</button>
+
+</form>
+
+<button type="button" onclick="javascript:history.back()">Back</button>
+
+{% else %}
+
+<p>You must log in as the correct user to edit</p>
+
+<button type="button" onclick="javascript:history.back()">Back</button>
+
+{% endif %}
+
+{% endblock content %}
