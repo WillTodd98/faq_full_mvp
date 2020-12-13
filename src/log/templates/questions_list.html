@@ -1,0 +1,18 @@
+{% extends 'base_2.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+{% for instance in object_list %}
+    <li><a href="{{ instance.get_absolute_url  }}">{{ instance.question_text }}</a></li>
+    <!-- <p><a href="{{  instances.get_absolute_url }}/"> {{ instance.answer_text }}</a></p> -->
+{% endfor %}
+
+{% else %}
+
+<p>You must log in</p>
+
+{% endif %}
+
+{% endblock content %} 
