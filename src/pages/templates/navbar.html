@@ -1,0 +1,18 @@
+<nav>
+    <ul>
+        <li><a href="http://127.0.0.1:8000/home">Home</a></li>
+        <li><a href="http://127.0.0.1:8000/questionslist">Question List</a></li>
+        <li><a href="http://127.0.0.1:8000/submissions">Submissions</a></li>
+        <li><a href="http://127.0.0.1:8000/categories">Categories</a></li>
+        {%  if user.is_authenticated  %}
+        <li><a href="http://127.0.0.1:8000/password">Change Password</a></li>
+        <li><a href="http://127.0.0.1:8000/members/logout">Logout</a></li>
+        {%  else  %}
+        <li><a href="http://127.0.0.1:8000/members/login">Login</a></li>
+        {%  endif  %}
+        <!-- <li><a href="http://127.0.0.1:8000/register">Register</a></li> -->
+        <!-- <li><a href="http://wtodd98.pythonanywhere.com/home">Home</a></li> -->
+        <!-- <li><a href="http://wtodd98.pythonanywhere.com/questionslist">Question List</a></li> -->
+        <!-- <li><a href="http://wtodd98.pythonanywhere.com/submissions">Submissions</a></li> -->
+    </ul>
+</nav>
