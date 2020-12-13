@@ -1,0 +1,29 @@
+{% extends 'base_2.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+{% if result %}
+
+<h1>Search Result Found</h1>
+
+{% for i in result %}
+
+<li><a href="{{ i.get_absolute_url }}">{{  i.question_text  }}</a></li>
+
+{%  endfor  %}
+
+{% else %}
+
+<h1>Search returned no results</h1>
+
+{% endif %}
+
+{% else %}
+
+<p>You must log in</p>
+
+{% endif %}
+
+{% endblock content %} 
