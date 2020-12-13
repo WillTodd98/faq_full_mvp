@@ -1,0 +1,38 @@
+{% extends 'base_2.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<form method="POST">{% csrf_token %}
+    <!-- {{form.as_p}} -->
+    <div class="fieldWrapper">
+        Question:
+        {{ form.question_text }}
+    </div>
+    <div class="fieldWrapper">
+        Category:
+        {{  form.category  }}
+    </div>
+    <div class="fieldWrapper">
+        Tags:
+        {{  form.tag  }}
+    </div>
+    <div class="fieldWrapper">
+        Please Confirm User:
+        {{  form.author  }}
+    </div>
+    <input type='submit' value="Save" /> 
+</form>
+
+<button type="button" onclick="javascript:history.back()">Back</button>
+
+{% else %}
+
+<p>You must log in</p>
+
+<button type="button" onclick="javascript:history.back()">Back</button>
+
+{% endif %}
+
+{% endblock content %}
